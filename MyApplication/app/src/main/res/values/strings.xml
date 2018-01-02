@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Contact_Share</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string-array name="Subject">
+        <item>"Data Structure and Algorithm"</item>
+        <item>"Computer Organization"</item>
+        <item>"Value and Ethics"</item>
+        <item>"Environment"</item>
+        <item>"Digital and Analog Circuit"</item>
+        <item>"Physics"</item>
+    </string-array>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="hintuser">userId</string>
+    <string name="pass_in_number">password in number</string>
+    <string name="createaccount">Create Account</string>
+    <string name="alreadylog">Already Have A Account Click Log In</string>
+    <string name="login">LogIn</string>
+    <string name="provide">Provide Email and Password more than six Character</string>
+    <string name="hi">Hi Download The Student List To Fasten Up Process Next Time</string>
+</resources>
