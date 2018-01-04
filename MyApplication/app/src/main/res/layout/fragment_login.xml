@@ -3,81 +3,82 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#141044"
-    android:gravity="center_horizontal">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#141044"
+        android:gravity="center_horizontal">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:lottie_fileName="data.json"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true"
-        />
-
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="350dp"
-        android:layout_height="45dp"
-        android:layout_gravity="center"
-        android:background="@drawable/edittext"
-        android:hint="@string/hintuser"
-        android:textSize="24dp"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp"
-
-        />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:id="@+id/password"
-        android:hint="@string/pass_in_number"
-        android:inputType="numberPassword"
-        android:textSize="24dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/edittext"
-
-android:paddingHorizontal="10dp"
-
-        />
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/create_account"
-        android:background="@drawable/rounded_button"
-        android:layout_gravity="center"
-
-        android:text="@string/createaccount"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="#ffffff"
-        android:text="@string/alreadylog"/>
-
-    <Button
-        android:id="@+id/login"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rounded_button"
-        android:text="@string/login" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/provide"
-        android:textColor="#ffffff" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:lottie_fileName="data.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
 
 
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/edittext"
+            android:hint="@string/hintuser"
+            android:textSize="24dp"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp"
 
-</LinearLayout>
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:id="@+id/password"
+            android:hint="@string/pass_in_number"
+            android:inputType="numberPassword"
+            android:textSize="24dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/edittext"
+
+            android:paddingHorizontal="10dp"
+
+            />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_account"
+            android:background="@drawable/rounded_button"
+            android:layout_gravity="center"
+
+            android:text="@string/createaccount" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:text="@string/alreadylog" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_button"
+            android:text="@string/login" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/provide"
+            android:textColor="#ffffff" />
+
+
+    </LinearLayout>
 </ScrollView>

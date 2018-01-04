@@ -1,18 +1,39 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:tools="http://schemas.android.com/tools"
 
-    android:padding="@dimen/widget_margin">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/appwidget_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/widgetTitleLabel"
 
-</RelativeLayout>
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimary"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_height="50dp"/>
+    </FrameLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/ListViewofWidget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:dividerHeight="1dp"
+            android:divider="#eeeeee"
+            tools:listitem="@layout/widjet_list"></ListView>
+    </LinearLayout>
+
+</LinearLayout>

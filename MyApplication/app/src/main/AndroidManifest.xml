@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".splash_screen">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,19 +26,25 @@
             android:name=".MainActivity"
             android:label="Attendance" />
         <activity android:name=".Subject" />
-        <activity android:name=".to_log_in" />
-        <activity android:name=".Student_Main_Activity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".toLog_in" />
+        <activity
+            android:name=".Student_Main_Activity"
+             />
 
         <receiver android:name=".NewAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
+
+        <service android:name=".MyWidgetRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
     </application>
 
 </manifest>

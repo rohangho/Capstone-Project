@@ -20,4 +20,9 @@
     <string name="login">LogIn</string>
     <string name="provide">Provide Email and Password more than six Character</string>
     <string name="hi">Hi Download The Student List To Fasten Up Process Next Time</string>
+    <string name="fileselector">file selector</string>
+    <string name="save">Save</string>
+    <string name="clear">Clear</string>
+    <string name="logOut">Log Out</string>
+    <string name="signIn">SignIn</string>
 </resources>

@@ -29,8 +29,7 @@ import java.util.Calendar;
 
 public class Login_Fragment extends Fragment {
 
-    public Login_Fragment()
-    {
+    public Login_Fragment() {
 
     }
 
@@ -46,14 +45,14 @@ public class Login_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
-        email=(EditText)rootView.findViewById(R.id.email);
-        password=(EditText)rootView.findViewById(R.id.password);
-        login=(Button)rootView.findViewById(R.id.login);
-        CreateAccount=(Button)rootView.findViewById(R.id.create_account);
-        fbAuth=FirebaseAuth.getInstance();
-        FirebaseUser user=fbAuth.getCurrentUser();
-        mDatabaseRef= FirebaseDatabase.getInstance().getReference();
-        if(user!=null)
+        email = (EditText) rootView.findViewById(R.id.email);
+        password = (EditText) rootView.findViewById(R.id.password);
+        login = (Button) rootView.findViewById(R.id.login);
+        CreateAccount = (Button) rootView.findViewById(R.id.create_account);
+        fbAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = fbAuth.getCurrentUser();
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        if (user != null)
             startActivity(new Intent(getActivity(), Subject.class));
 
 
@@ -61,18 +60,17 @@ public class Login_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-            final String username,passcode;
-                username=email.getText().toString();
+                final String username, passcode;
+                username = email.getText().toString();
 
-                passcode=password.getText().toString();
-                if(!TextUtils.isEmpty(username)&&!TextUtils.isEmpty(passcode))
-                {
+                passcode = password.getText().toString();
+                if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(passcode)) {
                     //Log.e("Hi i am printing",username);
-                    fbAuth.createUserWithEmailAndPassword(username,passcode).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    fbAuth.createUserWithEmailAndPassword(username, passcode).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()) {
-                                DatabaseReference mChildDatabase=mDatabaseRef.child("Users").push();
+                            if (task.isSuccessful()) {
+                                DatabaseReference mChildDatabase = mDatabaseRef.child("Users").push();
                                 mChildDatabase.child("verification").setValue("Unverified");
                                 mChildDatabase.child("email").setValue(username);
                                 mChildDatabase.child("password").setValue(passcode);
@@ -82,10 +80,9 @@ public class Login_Fragment extends Fragment {
                                 startActivity(new Intent(getActivity(), Subject.class));
 
 
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(getActivity(), "Some Error occured contact the developer", Toast.LENGTH_LONG).show();
-                                Log.e("hii",task.toString());
+                                Log.e("hii", task.toString());
                             }
                         }
                     });
@@ -97,22 +94,15 @@ public class Login_Fragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),to_log_in.class));
+                startActivity(new Intent(getActivity(), toLog_in.class));
                 getActivity().overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
         });
 
 
-
         fbAuth.signOut();
         return rootView;
     }
-
-
-
-
-
-
 
 
 }

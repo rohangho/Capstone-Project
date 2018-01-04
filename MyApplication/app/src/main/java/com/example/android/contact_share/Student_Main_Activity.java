@@ -45,10 +45,11 @@ public class Student_Main_Activity extends AppCompatActivity {
 
 
     Button abc;
-    ArrayList<CustomClass> mylist;
+    ArrayList<CustomClass_forStudent> mylist;
 
 
     Parcelable mListState;
+    int b;
     String data;
     RecyclerView namedisplayer;
     StudentAdapter studentAdapter;
@@ -56,6 +57,8 @@ public class Student_Main_Activity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     String nameconcat;
     Button save;
+    int a;
+    public static ArrayList<CustomClass_forStudent> myUpdatedList;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     String currentDateTimeString = DateFormat.getDateTimeInstance()
             .format(new Date());
@@ -71,7 +74,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         save = (Button) findViewById(R.id.save);
 
         abc = (Button) findViewById(R.id.file_selector);
-
+        if (savedInstanceState == null) {
             abc.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.M)
                 @Override
@@ -79,8 +82,36 @@ public class Student_Main_Activity extends AppCompatActivity {
                     showFile();
                 }//end of else part
             });//end of onclick
+        }
+        else
+        {
 
-    }
+
+            int d=savedInstanceState.getInt("number");
+            namedisplayer = (RecyclerView) findViewById(R.id.rec);
+            layoutManager = new LinearLayoutManager(this);
+            namedisplayer.setLayoutManager(layoutManager);
+            namedisplayer.setHasFixedSize(true);
+            mylist=savedInstanceState.getParcelableArrayList("LIST_STATE");
+            studentAdapter = new StudentAdapter( mylist, this, d);
+            namedisplayer.setAdapter(studentAdapter);
+
+            abc.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.M)
+                @Override
+                public void onClick(View v) {
+                    showFile();
+                }//end of else part
+            });//en
+
+            animateViewsIn();
+
+
+        }
+
+
+
+        }
 
     private void animateViewsIn() {
         ViewGroup root = (ViewGroup) findViewById(R.id.root);
@@ -109,7 +140,7 @@ public class Student_Main_Activity extends AppCompatActivity {
 
     public void SaveMe(View view) throws IOException {
 
-        ArrayList<CustomClass> myUpdatedList = new ArrayList<>();
+        myUpdatedList = new ArrayList<>();
         int k = 0;
         //Log.e("hiiiiii",Boolean.toString(studentAdapter.tracker[2]));
         if (data == null)
@@ -119,7 +150,7 @@ public class Student_Main_Activity extends AppCompatActivity {
             if (list.isEmpty())
                 Toast.makeText(getApplicationContext(), "Seems Empty", Toast.LENGTH_LONG).show();
             for (int i = 0; i < list.size() - 2; i = i + 3) {
-                CustomClass addition1 = new CustomClass(list.get(i), list.get(i + 1), Boolean.toString(studentAdapter.tracker[k]));
+                CustomClass_forStudent addition1 = new CustomClass_forStudent(list.get(i), list.get(i + 1), Boolean.toString(studentAdapter.tracker[k]));
                 myUpdatedList.add(addition1);
                 k++;
 
@@ -138,7 +169,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         }
     }
 
-    public void write_file(ArrayList<CustomClass> myUpdatedList) {
+    public void write_file(ArrayList<CustomClass_forStudent> myUpdatedList) {
         String Filename = currentDateTimeString;
         FileOutputStream outputStream = null;
         try {
@@ -202,7 +233,7 @@ public class Student_Main_Activity extends AppCompatActivity {
 
 
     public void ClearEveryThing(View view) {
-        mylist = new ArrayList<CustomClass>();
+        mylist = new ArrayList<CustomClass_forStudent>();
         List<String> list = new ArrayList<String>(Arrays.asList(data.split(",")));
         studentAdapter = new StudentAdapter(mylist, this, (list.size() / 3));
         namedisplayer.setAdapter(studentAdapter);
@@ -266,10 +297,10 @@ public class Student_Main_Activity extends AppCompatActivity {
     //different function in which the list is seperated using only one function
 
     public void addtoArraylist_Using1function(String q) {
-        mylist = new ArrayList<CustomClass>();
+        mylist = new ArrayList<CustomClass_forStudent>();
         List<String> list = new ArrayList<String>(Arrays.asList(q.split(",")));
         for (int i = 0; i < list.size() - 2; i = i + 3) {
-            CustomClass addition = new CustomClass(list.get(i), list.get(i + 1), list.get(i + 2));
+            CustomClass_forStudent addition = new CustomClass_forStudent(list.get(i), list.get(i + 1), list.get(i + 2));
             mylist.add(addition);
 
         }
@@ -280,6 +311,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         namedisplayer.setLayoutManager(layoutManager);
         namedisplayer.setHasFixedSize(true);
         studentAdapter = new StudentAdapter(mylist, this, (list.size() / 3));
+        a=list.size()/3;
         namedisplayer.setAdapter(studentAdapter);
         animateViewsIn();
 
@@ -298,7 +330,34 @@ public class Student_Main_Activity extends AppCompatActivity {
         return stringBuilder.toString();
     }
 
+    protected void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
 
+        // Save list state
+        if(layoutManager!=null) {
+            mListState = layoutManager.onSaveInstanceState();
+            state.putInt("number",a);
+            state.putParcelableArrayList("LIST_STATE", mylist);
+        }
+    }
+    protected void onRestoreInstanceState(Bundle state) {
+        super.onRestoreInstanceState(state);
 
+        // Retrieve list state and list/item positions
+        if(state != null) {
+            mylist = state.getParcelableArrayList("LIST_STATE");
+            a=state.getInt("number");
+            ;
+
+        }
+    }
+    protected void onResume() {
+        super.onResume();
+
+        if (mListState != null) {
+
+            layoutManager.onRestoreInstanceState(mListState);
+        }
+    }
 
 }

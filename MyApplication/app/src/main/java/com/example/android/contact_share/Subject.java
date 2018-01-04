@@ -38,7 +38,7 @@ public class Subject extends AppCompatActivity {
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Intent myintent = new Intent(getApplicationContext(), to_log_in.class);
+                final Intent myintent = new Intent(getApplicationContext(), toLog_in.class);
                 startActivity(myintent);
 
             }

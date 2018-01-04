@@ -8,20 +8,20 @@ import android.support.v7.app.AppCompatActivity;
  * Created by ROHAN on 31-12-2017.
  */
 
-public class splash_screen extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        Thread myThread = new Thread(){
+        Thread myThread = new Thread() {
 
             @Override
             public void run() {
                 try {
                     sleep(4000);
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {

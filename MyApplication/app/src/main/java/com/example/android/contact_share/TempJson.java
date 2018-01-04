@@ -15,8 +15,8 @@ public class TempJson {
             throws JSONException {
 
         JSONObject forJson = new JSONObject(JsonStr);
-        JSONObject getthedata=forJson.getJSONObject("main");
-        String temperature=getthedata.getString("temp");
+        JSONObject getthedata = forJson.getJSONObject("main");
+        String temperature = getthedata.getString("temp");
         return temperature;
 
     }

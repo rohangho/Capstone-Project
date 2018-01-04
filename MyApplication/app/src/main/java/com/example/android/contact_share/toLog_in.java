@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class to_log_in extends AppCompatActivity {
+public class toLog_in extends AppCompatActivity {
 
     EditText signed_email;
     EditText signed_password;
@@ -46,6 +46,7 @@ public class to_log_in extends AppCompatActivity {
         check_credential.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 fbAuth.signInWithEmailAndPassword((signed_email.getText().toString()), (signed_password.getText().toString())).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

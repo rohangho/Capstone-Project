@@ -1,10 +1,11 @@
 package com.example.android.contact_share;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.RemoteViews;
 
 /**
@@ -12,38 +13,32 @@ import android.widget.RemoteViews;
  */
 public class NewAppWidget extends AppWidgetProvider {
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        intent.setAction("android.appwidget.action.APPWIDGET_UPDATE");
+        super.onReceive(context, intent);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context.getApplicationContext());
+        ComponentName thisWidget = new ComponentName(context.getApplicationContext(), NewAppWidget.class);
+        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
 
-        CharSequence widgetText = "Members! Directly Jump";
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
-
-        Intent myIntent = new Intent(context,to_log_in.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,myIntent,0);
-        views.setOnClickPendingIntent(R.id.appwidget_text,pendingIntent);
-
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
+        onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // There may be multiple widgets active, so update all of them
-        for (int appWidgetId : appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId);
+        for(int i = 0; i < appWidgetIds.length; i ++) {
+            Intent intent = new Intent(context, MyWidgetRemoteViewsService.class);
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
+            intent.putExtra("Random", Math.random() * 1000); // Add a random integer to stop the Intent being ignored.  This is needed for some API levels due to intent caching
+            intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
+            RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
+            rv.setRemoteAdapter( R.id.ListViewofWidget, intent);
+            appWidgetManager.updateAppWidget(appWidgetIds[i], rv);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds[i], R.id.ListViewofWidget);
         }
+        super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
-    @Override
-    public void onEnabled(Context context) {
-        // Enter relevant functionality for when the first widget is created
-    }
 
-    @Override
-    public void onDisabled(Context context) {
-        // Enter relevant functionality for when the last widget is disabled
-    }
 }
 
