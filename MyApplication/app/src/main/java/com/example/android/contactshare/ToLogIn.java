@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class toLog_in extends AppCompatActivity {
+public class ToLogIn extends AppCompatActivity {
 
     EditText signed_email;
     EditText signed_password;

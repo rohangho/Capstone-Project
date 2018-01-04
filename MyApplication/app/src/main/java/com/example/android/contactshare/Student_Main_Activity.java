@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.app.Activity;
 import android.content.Context;
@@ -45,7 +45,7 @@ public class Student_Main_Activity extends AppCompatActivity {
 
 
     Button abc;
-    ArrayList<CustomClass_forStudent> mylist;
+    ArrayList<CustomClassForStudent> mylist;
 
 
     Parcelable mListState;
@@ -54,11 +54,14 @@ public class Student_Main_Activity extends AppCompatActivity {
     RecyclerView namedisplayer;
     StudentAdapter studentAdapter;
     String rollconcat;
+
+
     RecyclerView.LayoutManager layoutManager;
     String nameconcat;
     Button save;
     int a;
-    public static ArrayList<CustomClass_forStudent> myUpdatedList;
+    String data1;
+    public static ArrayList<CustomClassForStudent> myUpdatedList;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     String currentDateTimeString = DateFormat.getDateTimeInstance()
             .format(new Date());
@@ -88,6 +91,7 @@ public class Student_Main_Activity extends AppCompatActivity {
 
 
             int d=savedInstanceState.getInt("number");
+            data1=savedInstanceState.getString("data");
             namedisplayer = (RecyclerView) findViewById(R.id.rec);
             layoutManager = new LinearLayoutManager(this);
             namedisplayer.setLayoutManager(layoutManager);
@@ -143,14 +147,14 @@ public class Student_Main_Activity extends AppCompatActivity {
         myUpdatedList = new ArrayList<>();
         int k = 0;
         //Log.e("hiiiiii",Boolean.toString(studentAdapter.tracker[2]));
-        if (data == null)
+        if (data == null && data1==null)
             Toast.makeText(getApplicationContext(), "Seems Empty", Toast.LENGTH_LONG).show();
         else {
             List<String> list = new ArrayList<String>(Arrays.asList(data.split(",")));
             if (list.isEmpty())
                 Toast.makeText(getApplicationContext(), "Seems Empty", Toast.LENGTH_LONG).show();
             for (int i = 0; i < list.size() - 2; i = i + 3) {
-                CustomClass_forStudent addition1 = new CustomClass_forStudent(list.get(i), list.get(i + 1), Boolean.toString(studentAdapter.tracker[k]));
+                CustomClassForStudent addition1 = new CustomClassForStudent(list.get(i), list.get(i + 1), Boolean.toString(studentAdapter.tracker[k]));
                 myUpdatedList.add(addition1);
                 k++;
 
@@ -169,7 +173,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         }
     }
 
-    public void write_file(ArrayList<CustomClass_forStudent> myUpdatedList) {
+    public void write_file(ArrayList<CustomClassForStudent> myUpdatedList) {
         String Filename = currentDateTimeString;
         FileOutputStream outputStream = null;
         try {
@@ -233,7 +237,7 @@ public class Student_Main_Activity extends AppCompatActivity {
 
 
     public void ClearEveryThing(View view) {
-        mylist = new ArrayList<CustomClass_forStudent>();
+        mylist = new ArrayList<CustomClassForStudent>();
         List<String> list = new ArrayList<String>(Arrays.asList(data.split(",")));
         studentAdapter = new StudentAdapter(mylist, this, (list.size() / 3));
         namedisplayer.setAdapter(studentAdapter);
@@ -297,10 +301,10 @@ public class Student_Main_Activity extends AppCompatActivity {
     //different function in which the list is seperated using only one function
 
     public void addtoArraylist_Using1function(String q) {
-        mylist = new ArrayList<CustomClass_forStudent>();
+        mylist = new ArrayList<CustomClassForStudent>();
         List<String> list = new ArrayList<String>(Arrays.asList(q.split(",")));
         for (int i = 0; i < list.size() - 2; i = i + 3) {
-            CustomClass_forStudent addition = new CustomClass_forStudent(list.get(i), list.get(i + 1), list.get(i + 2));
+            CustomClassForStudent addition = new CustomClassForStudent(list.get(i), list.get(i + 1), list.get(i + 2));
             mylist.add(addition);
 
         }
@@ -336,6 +340,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         // Save list state
         if(layoutManager!=null) {
             mListState = layoutManager.onSaveInstanceState();
+            state.putString("data",data);
             state.putInt("number",a);
             state.putParcelableArrayList("LIST_STATE", mylist);
         }
@@ -347,6 +352,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         if(state != null) {
             mylist = state.getParcelableArrayList("LIST_STATE");
             a=state.getInt("number");
+           
             ;
 
         }

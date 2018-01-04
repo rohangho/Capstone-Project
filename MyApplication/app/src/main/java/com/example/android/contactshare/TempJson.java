@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.content.Context;
 

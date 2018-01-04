@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_dashboard:
                     // mTextMessage.setText(R.string.title_dashboard);
 
-                    Transaction.replace(R.id.home, new Login_Fragment()).commit();
+                    Transaction.replace(R.id.home, new LoginFragment()).commit();
                     return true;
 
             }

@@ -25,4 +25,7 @@
     <string name="clear">Clear</string>
     <string name="logOut">Log Out</string>
     <string name="signIn">SignIn</string>
+    <string name="digital">Digital</string>
+    <string name="created">User Account Created</string>
+    <string name="error">Some Error occured contact the developer</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 /**
  * Created by ROHAN on 17-11-2017.

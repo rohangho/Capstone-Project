@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7,19 +7,19 @@ import android.os.Parcelable;
  * Created by ROHAN on 30-12-2017.
  */
 
-public class CustomClass_forStudent implements Parcelable{
+public class CustomClassForStudent implements Parcelable{
 
     private String roll;
     private String name;
     private String bool;
 
-    public CustomClass_forStudent(String roll_number, String original_name, String bool) {
-        this.roll = roll_number;
-        this.name = original_name;
+    public CustomClassForStudent(String rollNumber, String originalName, String bool) {
+        this.roll = rollNumber;
+        this.name = originalName;
         this.bool = bool;
     }
 
-    public CustomClass_forStudent(int customClass) {
+    public CustomClassForStudent(int customClass) {
 
     }
 
@@ -44,13 +44,13 @@ public class CustomClass_forStudent implements Parcelable{
         out.writeString(bool);
     }
 
-    private CustomClass_forStudent(Parcel in) {
+    private CustomClassForStudent(Parcel in) {
         roll=in.readString();
         name=in.readString();
         bool=in.readString();
     }
 
-    public CustomClass_forStudent() {
+    public CustomClassForStudent() {
 
     }
 
@@ -59,17 +59,17 @@ public class CustomClass_forStudent implements Parcelable{
         return 0;
     }
 
-    public static final Parcelable.Creator<CustomClass_forStudent> CREATOR
-            = new Parcelable.Creator<CustomClass_forStudent>() {
+    public static final Parcelable.Creator<CustomClassForStudent> CREATOR
+            = new Parcelable.Creator<CustomClassForStudent>() {
 
         @Override
-        public CustomClass_forStudent createFromParcel(Parcel in) {
-            return new CustomClass_forStudent(in);
+        public CustomClassForStudent createFromParcel(Parcel in) {
+            return new CustomClassForStudent(in);
         }
 
         @Override
-        public CustomClass_forStudent[] newArray(int size) {
-            return new CustomClass_forStudent[size];
+        public CustomClassForStudent[] newArray(int size) {
+            return new CustomClassForStudent[size];
         }
     };
 

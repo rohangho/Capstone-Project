@@ -8,7 +8,7 @@
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:id="@+id/root"
-        tools:context="com.example.android.contact_share.Subject">
+        tools:context="com.example.android.contactshare.Subject">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/subject_selection"

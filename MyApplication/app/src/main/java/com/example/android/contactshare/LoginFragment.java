@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,9 +27,9 @@ import java.util.Calendar;
  * Created by ROHAN on 01-11-2017.
  */
 
-public class Login_Fragment extends Fragment {
+public class LoginFragment extends Fragment {
 
-    public Login_Fragment() {
+    public LoginFragment() {
 
     }
 
@@ -75,13 +75,13 @@ public class Login_Fragment extends Fragment {
                                 mChildDatabase.child("email").setValue(username);
                                 mChildDatabase.child("password").setValue(passcode);
                                 mChildDatabase.child("Time").setValue(Calendar.getInstance().getTime().toString());
-                                Toast.makeText(getActivity(), "User Account Created", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(),R.string.created, Toast.LENGTH_LONG).show();
 
                                 startActivity(new Intent(getActivity(), Subject.class));
 
 
                             } else {
-                                Toast.makeText(getActivity(), "Some Error occured contact the developer", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_LONG).show();
                                 Log.e("hii", task.toString());
                             }
                         }
@@ -94,7 +94,7 @@ public class Login_Fragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), toLog_in.class));
+                startActivity(new Intent(getActivity(), ToLogIn.class));
                 getActivity().overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
         });

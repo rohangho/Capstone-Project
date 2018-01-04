@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.contact_share">
+    package="com.example.android.contactshare">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+        <activity android:name="com.example.android.contactshare.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,15 +23,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.android.contactshare.MainActivity"
             android:label="Attendance" />
-        <activity android:name=".Subject" />
-        <activity android:name=".toLog_in" />
+        <activity android:name="com.example.android.contactshare.Subject" />
+        <activity android:name="com.example.android.contactshare.ToLogIn" />
         <activity
-            android:name=".Student_Main_Activity"
+            android:name="com.example.android.contactshare.Student_Main_Activity"
              />
 
-        <receiver android:name=".NewAppWidget">
+        <receiver android:name="com.example.android.contactshare.NewAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.intent.action.DATE_CHANGED" />
@@ -42,7 +42,7 @@
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
 
-        <service android:name=".MyWidgetRemoteViewsService"
+        <service android:name="com.example.android.contactshare.MyWidgetRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS"
             android:exported="false" />
     </application>

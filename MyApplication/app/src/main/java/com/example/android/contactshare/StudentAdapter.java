@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 /**
  * Created by ROHAN on 30-12-2017.
@@ -21,12 +21,12 @@ import java.util.ArrayList;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHolder> {
 
-    ArrayList<CustomClass_forStudent> detail = new ArrayList<>();
+    ArrayList<CustomClassForStudent> detail = new ArrayList<>();
     Context ctx;
     int size;
     boolean tracker[];
 
-    public StudentAdapter(ArrayList<CustomClass_forStudent> detail, Context ctx, int a) {
+    public StudentAdapter(ArrayList<CustomClassForStudent> detail, Context ctx, int a) {
         this.detail = detail;
         this.ctx = ctx;
         this.size = a;
@@ -48,7 +48,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(StudentAdapter.ViewHolder holder, int position) {
-        CustomClass_forStudent obj = detail.get(position);
+        CustomClassForStudent obj = detail.get(position);
         holder.name.setText(obj.getName());
         holder.rollno.setText(obj.getRoll());
         if (obj.getBool().equalsIgnoreCase("true"))
@@ -64,13 +64,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        ArrayList<CustomClass_forStudent> detail = new ArrayList<>();
+        ArrayList<CustomClassForStudent> detail = new ArrayList<>();
         TextView name;
         TextView rollno;
         Switch enable;
         Context ctx;
 
-        public ViewHolder(View itemView, Context ctx, ArrayList<CustomClass_forStudent> detail) {
+        public ViewHolder(View itemView, Context ctx, ArrayList<CustomClassForStudent> detail) {
             super(itemView);
             this.ctx = ctx;
             this.detail = detail;

@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,7 +38,7 @@ public class Subject extends AppCompatActivity {
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Intent myintent = new Intent(getApplicationContext(), toLog_in.class);
+                final Intent myintent = new Intent(getApplicationContext(), ToLogIn.class);
                 startActivity(myintent);
 
             }

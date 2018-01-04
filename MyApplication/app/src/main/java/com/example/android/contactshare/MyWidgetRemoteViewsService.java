@@ -1,4 +1,4 @@
-package com.example.android.contact_share;
+package com.example.android.contactshare;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -19,7 +19,7 @@ public class MyWidgetRemoteViewsService extends RemoteViewsService {
     }
 
     class MyWidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
-        private ArrayList<CustomClass_forStudent> mydata;
+        private ArrayList<CustomClassForStudent> mydata;
         private Context context;
         private int mAppWidgetId;
         Student_Main_Activity obj=new Student_Main_Activity();
@@ -32,9 +32,9 @@ public class MyWidgetRemoteViewsService extends RemoteViewsService {
                 if(obj.myUpdatedList!=null)
             for(int i=0;i<obj.myUpdatedList.size();i++)
             {
-                mydata.add(new CustomClass_forStudent(obj.myUpdatedList.get(i).getRoll(),obj.myUpdatedList.get(i).getName(),obj.myUpdatedList.get(i).getBool()));
+                mydata.add(new CustomClassForStudent(obj.myUpdatedList.get(i).getRoll(),obj.myUpdatedList.get(i).getName(),obj.myUpdatedList.get(i).getBool()));
             }
-            //mydata.add(new CustomClass_forStudent(obj.abc[0]));
+            //mydata.add(new CustomClassForStudent(obj.abc[0]));
             //mydata.add(new CustomDataType(obj.abc[1]));
             //mydata.add(new CustomDataType(obj.array.get(1).getresname()));
 
@@ -45,7 +45,7 @@ public class MyWidgetRemoteViewsService extends RemoteViewsService {
         @Override
         public void onCreate() {
             for (int i = 0; i < mydata.size(); i++) {
-                mydata.add(new CustomClass_forStudent(i));
+                mydata.add(new CustomClassForStudent(i));
             }
         }
 

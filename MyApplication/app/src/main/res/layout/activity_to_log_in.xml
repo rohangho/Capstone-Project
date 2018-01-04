@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:layout_height="match_parent"
         android:background="#4f8bea"
-        tools:context="com.example.android.contact_share.toLog_in">
+        tools:context="com.example.android.contactshare.ToLogIn">
 
         <ImageView
             android:layout_width="match_parent"

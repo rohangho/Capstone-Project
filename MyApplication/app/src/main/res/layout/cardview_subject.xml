@@ -42,9 +42,9 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
                 android:layout_below="@+id/subject_image"
-                android:text="Digital"
+                android:text="@string/digital"
                 android:textColor="#000000"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
