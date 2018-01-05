@@ -41,7 +41,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-public class Student_Main_Activity extends AppCompatActivity {
+public class StudentMainActivity extends AppCompatActivity {
 
 
     Button abc;
@@ -84,19 +84,17 @@ public class Student_Main_Activity extends AppCompatActivity {
                     showFile();
                 }//end of else part
             });//end of onclick
-        }
-        else
-        {
+        } else {
 
 
-            int d=savedInstanceState.getInt("number");
-            data=savedInstanceState.getString("data");
+            int d = savedInstanceState.getInt("number");
+            data = savedInstanceState.getString("data");
             namedisplayer = (RecyclerView) findViewById(R.id.rec);
             layoutManager = new LinearLayoutManager(this);
             namedisplayer.setLayoutManager(layoutManager);
             namedisplayer.setHasFixedSize(true);
-            mylist=savedInstanceState.getParcelableArrayList("LIST_STATE");
-            studentAdapter = new StudentAdapter( mylist, this, d);
+            mylist = savedInstanceState.getParcelableArrayList("LIST_STATE");
+            studentAdapter = new StudentAdapter(mylist, this, d);
             namedisplayer.setAdapter(studentAdapter);
 
             abc.setOnClickListener(new View.OnClickListener() {
@@ -113,8 +111,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         }
 
 
-
-        }
+    }
 
     private void animateViewsIn() {
         ViewGroup root = (ViewGroup) findViewById(R.id.root);
@@ -314,7 +311,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         namedisplayer.setLayoutManager(layoutManager);
         namedisplayer.setHasFixedSize(true);
         studentAdapter = new StudentAdapter(mylist, this, (list.size() / 3));
-        a=list.size()/3;
+        a = list.size() / 3;
         namedisplayer.setAdapter(studentAdapter);
         animateViewsIn();
 
@@ -337,25 +334,27 @@ public class Student_Main_Activity extends AppCompatActivity {
         super.onSaveInstanceState(state);
 
         // Save list state
-        if(layoutManager!=null) {
+        if (layoutManager != null) {
             mListState = layoutManager.onSaveInstanceState();
-            state.putString("data",data);
-            state.putInt("number",a);
+            state.putString("data", data);
+            state.putInt("number", a);
             state.putParcelableArrayList("LIST_STATE", mylist);
         }
     }
+
     protected void onRestoreInstanceState(Bundle state) {
         super.onRestoreInstanceState(state);
 
         // Retrieve list state and list/item positions
-        if(state != null) {
+        if (state != null) {
             mylist = state.getParcelableArrayList("LIST_STATE");
-            a=state.getInt("number");
+            a = state.getInt("number");
 
             ;
 
         }
     }
+
     protected void onResume() {
         super.onResume();
 

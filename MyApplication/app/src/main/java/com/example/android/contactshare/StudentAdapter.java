@@ -33,7 +33,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         tracker = new boolean[size];
     }
 
-    public StudentAdapter(Parcelable[] abc, Student_Main_Activity ctx, int d) {
+    public StudentAdapter(Parcelable[] abc, StudentMainActivity ctx, int d) {
     }
 
     @Override
@@ -58,8 +58,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
+        if(detail!=null)
         return detail.size();
+        else
+            return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

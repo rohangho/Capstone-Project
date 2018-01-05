@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/root"
-    tools:context="com.example.android.contactshare.Student_Main_Activity">
+    tools:context="com.example.android.contactshare.StudentMainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

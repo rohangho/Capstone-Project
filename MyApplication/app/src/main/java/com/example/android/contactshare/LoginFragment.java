@@ -75,7 +75,7 @@ public class LoginFragment extends Fragment {
                                 mChildDatabase.child("email").setValue(username);
                                 mChildDatabase.child("password").setValue(passcode);
                                 mChildDatabase.child("Time").setValue(Calendar.getInstance().getTime().toString());
-                                Toast.makeText(getActivity(),R.string.created, Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), R.string.created, Toast.LENGTH_LONG).show();
 
                                 startActivity(new Intent(getActivity(), Subject.class));
 

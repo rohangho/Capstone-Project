@@ -15,29 +15,27 @@ import java.util.ArrayList;
 public class MyWidgetRemoteViewsService extends RemoteViewsService {
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new MyWidgetRemoteViewsFactory(this.getApplicationContext(),intent);
+        return new MyWidgetRemoteViewsFactory(this.getApplicationContext(), intent);
     }
 
     class MyWidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
         private ArrayList<CustomClassForStudent> mydata;
         private Context context;
         private int mAppWidgetId;
-        Student_Main_Activity obj=new Student_Main_Activity();
+        StudentMainActivity obj = new StudentMainActivity();
 
-        public MyWidgetRemoteViewsFactory(Context context,Intent intent) {
+        public MyWidgetRemoteViewsFactory(Context context, Intent intent) {
             this.context = context;
             mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                     AppWidgetManager.INVALID_APPWIDGET_ID);
             mydata = new ArrayList<>();
-                if(obj.myUpdatedList!=null)
-            for(int i=0;i<obj.myUpdatedList.size();i++)
-            {
-                mydata.add(new CustomClassForStudent(obj.myUpdatedList.get(i).getRoll(),obj.myUpdatedList.get(i).getName(),obj.myUpdatedList.get(i).getBool()));
-            }
+            if (obj.myUpdatedList != null)
+                for (int i = 0; i < obj.myUpdatedList.size(); i++) {
+                    mydata.add(new CustomClassForStudent(obj.myUpdatedList.get(i).getRoll(), obj.myUpdatedList.get(i).getName(), obj.myUpdatedList.get(i).getBool()));
+                }
             //mydata.add(new CustomClassForStudent(obj.abc[0]));
             //mydata.add(new CustomDataType(obj.abc[1]));
             //mydata.add(new CustomDataType(obj.array.get(1).getresname()));
-
 
 
         }
@@ -62,7 +60,7 @@ public class MyWidgetRemoteViewsService extends RemoteViewsService {
 
         @Override
         public int getCount() {
-            if(mydata !=null)
+            if (mydata != null)
                 return mydata.size();
             else
                 return 0;
@@ -73,7 +71,7 @@ public class MyWidgetRemoteViewsService extends RemoteViewsService {
             RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widjet_list);
             rv.setTextViewText(R.id.widgetRoll, mydata.get(position).getRoll());
             rv.setTextViewText(R.id.widgetName, mydata.get(position).getName());
-            rv.setTextViewText(R.id.widgetboolean,mydata.get(position).getBool());
+            rv.setTextViewText(R.id.widgetboolean, mydata.get(position).getBool());
             // rv.setTextViewText(R.id.widgetItemTaskNameLabel,obj.array.get(position).getresname());
             return rv;
         }

@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by ROHAN on 30-12-2017.
  */
 
-public class CustomClassForStudent implements Parcelable{
+public class CustomClassForStudent implements Parcelable {
 
     private String roll;
     private String name;
@@ -45,9 +45,9 @@ public class CustomClassForStudent implements Parcelable{
     }
 
     private CustomClassForStudent(Parcel in) {
-        roll=in.readString();
-        name=in.readString();
-        bool=in.readString();
+        roll = in.readString();
+        name = in.readString();
+        bool = in.readString();
     }
 
     public CustomClassForStudent() {

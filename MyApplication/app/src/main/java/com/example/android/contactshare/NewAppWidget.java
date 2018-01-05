@@ -26,13 +26,13 @@ public class NewAppWidget extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        for(int i = 0; i < appWidgetIds.length; i ++) {
+        for (int i = 0; i < appWidgetIds.length; i++) {
             Intent intent = new Intent(context, MyWidgetRemoteViewsService.class);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
             intent.putExtra("Random", Math.random() * 1000); // Add a random integer to stop the Intent being ignored.  This is needed for some API levels due to intent caching
             intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
             RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
-            rv.setRemoteAdapter( R.id.ListViewofWidget, intent);
+            rv.setRemoteAdapter(R.id.ListViewofWidget, intent);
             appWidgetManager.updateAppWidget(appWidgetIds[i], rv);
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds[i], R.id.ListViewofWidget);
         }

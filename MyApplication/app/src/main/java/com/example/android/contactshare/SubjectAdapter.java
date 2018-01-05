@@ -66,7 +66,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Subject_
             int a = getAdapterPosition();
             //Log.e("i am position",Integer.toString(a));
             CustomClass_Sub subject = this.subject.get(a);
-            Intent intent = new Intent(this.ctx, Student_Main_Activity.class);
+            Intent intent = new Intent(this.ctx, StudentMainActivity.class);
             ctx.startActivity(intent);
 
         }

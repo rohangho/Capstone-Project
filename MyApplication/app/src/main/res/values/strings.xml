@@ -28,4 +28,5 @@
     <string name="digital">Digital</string>
     <string name="created">User Account Created</string>
     <string name="error">Some Error occured contact the developer</string>
+    <string name="permission">Permission Denied</string>
 </resources>

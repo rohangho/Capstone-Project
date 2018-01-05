@@ -27,9 +27,7 @@
             android:label="Attendance" />
         <activity android:name="com.example.android.contactshare.Subject" />
         <activity android:name="com.example.android.contactshare.ToLogIn" />
-        <activity
-            android:name="com.example.android.contactshare.Student_Main_Activity"
-             />
+        <activity android:name="com.example.android.contactshare.StudentMainActivity" />
 
         <receiver android:name="com.example.android.contactshare.NewAppWidget">
             <intent-filter>
@@ -42,7 +40,8 @@
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
 
-        <service android:name="com.example.android.contactshare.MyWidgetRemoteViewsService"
+        <service
+            android:name="com.example.android.contactshare.MyWidgetRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS"
             android:exported="false" />
     </application>

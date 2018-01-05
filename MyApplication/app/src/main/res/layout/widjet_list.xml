@@ -17,7 +17,8 @@
         android:layout_weight="1"
         android:textColor="#444444"
         android:layout_gravity="center_vertical"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/widgetRoll"
         android:layout_width="wrap_content"
@@ -25,7 +26,7 @@
         android:layout_weight="1"
         android:textColor="#444444"
         android:layout_gravity="center_vertical"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/widgetboolean"
@@ -34,5 +35,5 @@
         android:layout_weight="1"
         android:textColor="#444444"
         android:layout_gravity="center_vertical"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>

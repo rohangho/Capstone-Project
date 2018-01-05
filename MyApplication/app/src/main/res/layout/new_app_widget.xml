@@ -9,6 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/widgetTitleLabel"
@@ -18,14 +19,14 @@
             android:textSize="18dp"
             android:gravity="center"
             android:textAllCaps="true"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp" />
     </FrameLayout>
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ListView
             android:id="@+id/ListViewofWidget"
             android:layout_width="match_parent"

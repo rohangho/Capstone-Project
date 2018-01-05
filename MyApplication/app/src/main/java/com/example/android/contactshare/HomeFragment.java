@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment implements LocationListener {
 
             }
         } else {
-            Toast.makeText(getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.permission, Toast.LENGTH_LONG).show();
         }
     }
 
