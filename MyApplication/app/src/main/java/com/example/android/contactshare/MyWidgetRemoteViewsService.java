@@ -42,7 +42,8 @@ public class MyWidgetRemoteViewsService extends RemoteViewsService {
 
         @Override
         public void onCreate() {
-            for (int i = 0; i < mydata.size(); i++) {
+            int a=mydata.size();
+            for (int i = 0; i < a; i++) {
                 mydata.add(new CustomClassForStudent(i));
             }
         }
