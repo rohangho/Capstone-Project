@@ -16,10 +16,10 @@ import java.util.ArrayList;
  */
 
 public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Subject_ViewHolder> {
-    ArrayList<CustomClass_Sub> subject = new ArrayList<CustomClass_Sub>();
+    ArrayList<CustomClassSub> subject = new ArrayList<CustomClassSub>();
     Context ctx;
 
-    public SubjectAdapter(ArrayList<CustomClass_Sub> subject, Context ctx) {
+    public SubjectAdapter(ArrayList<CustomClassSub> subject, Context ctx) {
         this.subject = subject;
         this.ctx = ctx;
     }
@@ -33,7 +33,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Subject_
 
     @Override
     public void onBindViewHolder(Subject_ViewHolder holder, int position) {
-        CustomClass_Sub obj = subject.get(position);
+        CustomClassSub obj = subject.get(position);
         holder.Img.setImageResource(obj.getImageId());
         holder.SubjectName.setText(obj.getSubject());
     }
@@ -46,10 +46,10 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Subject_
     public static class Subject_ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView Img;
         TextView SubjectName;
-        ArrayList<CustomClass_Sub> subject = new ArrayList<CustomClass_Sub>();
+        ArrayList<CustomClassSub> subject = new ArrayList<CustomClassSub>();
         Context ctx;
 
-        public Subject_ViewHolder(View itemView, Context ctx, ArrayList<CustomClass_Sub> subject) {
+        public Subject_ViewHolder(View itemView, Context ctx, ArrayList<CustomClassSub> subject) {
             super(itemView);
             this.subject = subject;
             this.ctx = ctx;
@@ -65,7 +65,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.Subject_
         public void onClick(View v) {
             int a = getAdapterPosition();
             //Log.e("i am position",Integer.toString(a));
-            CustomClass_Sub subject = this.subject.get(a);
+            CustomClassSub subject = this.subject.get(a);
             Intent intent = new Intent(this.ctx, StudentMainActivity.class);
             ctx.startActivity(intent);
 

@@ -4,12 +4,12 @@ package com.example.android.contactshare;
  * Created by ROHAN on 17-11-2017.
  */
 
-public class CustomClass_Sub {
+public class CustomClassSub {
 
     private int ImageId;
     private String Subject;
 
-    public CustomClass_Sub(int ImageId, String Subject) {
+    public CustomClassSub(int ImageId, String Subject) {
         this.ImageId = ImageId;
         this.Subject = Subject;
     }

@@ -18,7 +18,7 @@ public class Subject extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
-    ArrayList<CustomClass_Sub> subject_name = new ArrayList<CustomClass_Sub>();
+    ArrayList<CustomClassSub> subject_name = new ArrayList<CustomClassSub>();
     SubjectAdapter adapt;
     Button Logout;
     RecyclerView.LayoutManager layoutManager;
@@ -45,7 +45,7 @@ public class Subject extends AppCompatActivity {
         });
 
         for (String Name : name) {
-            CustomClass_Sub custom = new CustomClass_Sub(image_id[count], Name);
+            CustomClassSub custom = new CustomClassSub(image_id[count], Name);
             count++;
             subject_name.add(custom);
         }

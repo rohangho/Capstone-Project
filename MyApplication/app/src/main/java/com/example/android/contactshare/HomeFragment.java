@@ -130,9 +130,9 @@ public class HomeFragment extends Fragment implements LocationListener {
             String url = "http://samples.openweathermap.org/data/2.5/weather?lat=" + latitude.toString() + "&lon=" + longitude.toString() + "&appid=19c582ab57628fee373c6c741f78d8d8";
 
             Uri myuri = Uri.parse(url);
-            URL requesturl = Network.buildUrl(myuri);
+            URL requesturl = network.buildUrl(myuri);
             try {
-                String jsonResponse = Network
+                String jsonResponse = network
                         .getResponseFromHttpUrl(requesturl);
                 String weather = null;
                 try {
