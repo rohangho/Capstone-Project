@@ -82,6 +82,17 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             rollno = (TextView) itemView.findViewById(R.id.roll);
             enable = (Switch) itemView.findViewById(R.id.trueANDfalse);
 
+            for(int i=0;i<detail.size();i++)
+            {
+                if(detail.get(i).getBool()=="true")
+                {
+                    enable.setChecked(true);
+                }
+                else
+                {
+                    enable.setChecked(false);
+                }
+            }
             name.setOnClickListener(this);
         }
 
@@ -92,10 +103,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                 enable.setChecked(false);
 
                 int position = getAdapterPosition();
+                detail.get(position).setBool("false");
                 tracker[position] = false;
             } else {
                 enable.setChecked(true);
                 int position = getAdapterPosition();
+                detail.get(position).setBool("true");
                 tracker[position] = true;
             }
             // Log.e("i am position",Integer.toString(position));

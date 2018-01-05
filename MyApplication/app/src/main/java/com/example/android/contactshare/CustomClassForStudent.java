@@ -36,6 +36,10 @@ public class CustomClassForStudent implements Parcelable {
         return bool;
     }
 
+    public void setBool(String bool) {
+        this.bool = bool;
+    }
+
     @Override
     public void writeToParcel(Parcel out, int flags) {
 

@@ -338,7 +338,7 @@ public class StudentMainActivity extends AppCompatActivity {
             mListState = layoutManager.onSaveInstanceState();
             state.putString("data", data);
             state.putInt("number", a);
-            state.putParcelableArrayList("LIST_STATE", mylist);
+            state.putParcelableArrayList("LIST_STATE", studentAdapter.detail);
         }
     }
 
