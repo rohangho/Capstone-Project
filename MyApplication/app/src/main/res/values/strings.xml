@@ -29,4 +29,9 @@
     <string name="created">User Account Created</string>
     <string name="error">Some Error occured contact the developer</string>
     <string name="permission">Permission Denied</string>
+    <string name="empty">Seems Empty</string>
+    <string name="hang">Hang On</string>
+    <string name="success">Successful</string>
+    <string name="lati">latitude:</string>
+    <string name="lon">longitude:</string>
 </resources>

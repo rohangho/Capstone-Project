@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements LocationListener {
                 longitude = location.getLongitude();
                 Temp tem = new Temp();
                 tem.execute("a");
-                Toast.makeText(getContext(), "latitude:" + latitude + " longitude:" + longitude, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.lati + latitude + ""+R.string.lon + longitude, Toast.LENGTH_SHORT).show();
 
             } else {
                 //This is what you need:
@@ -103,7 +103,7 @@ public class HomeFragment extends Fragment implements LocationListener {
         longitude = location.getLongitude();
         Temp tem = new Temp();
         tem.execute("a");
-        Toast.makeText(getContext(), "latitude:" + latitude + " longitude:" + longitude, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),(R.string.lati + latitude +""+R.string.lon+ longitude), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -130,9 +130,9 @@ public class HomeFragment extends Fragment implements LocationListener {
             String url = "http://samples.openweathermap.org/data/2.5/weather?lat=" + latitude.toString() + "&lon=" + longitude.toString() + "&appid=19c582ab57628fee373c6c741f78d8d8";
 
             Uri myuri = Uri.parse(url);
-            URL requesturl = network.buildUrl(myuri);
+            URL requesturl = Network1.buildUrl(myuri);
             try {
-                String jsonResponse = network
+                String jsonResponse = Network1
                         .getResponseFromHttpUrl(requesturl);
                 String weather = null;
                 try {

@@ -13,7 +13,7 @@ import java.util.Scanner;
  * Created by ROHAN on 01-01-2018.
  */
 
-public class network {
+public class Network1 {
 
     public static URL buildUrl(Uri type) {
 

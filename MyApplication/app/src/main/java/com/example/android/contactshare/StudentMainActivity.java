@@ -144,11 +144,11 @@ public class StudentMainActivity extends AppCompatActivity {
         int k = 0;
         //Log.e("hiiiiii",Boolean.toString(studentAdapter.tracker[2]));
         if (data == null)
-            Toast.makeText(getApplicationContext(), "Seems Empty", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.empty, Toast.LENGTH_LONG).show();
         else {
             List<String> list = new ArrayList<String>(Arrays.asList(data.split(",")));
             if (list.isEmpty())
-                Toast.makeText(getApplicationContext(), "Seems Empty", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.empty, Toast.LENGTH_LONG).show();
             for (int i = 0; i < list.size() - 2; i = i + 3) {
                 CustomClassForStudent addition1 = new CustomClassForStudent(list.get(i), list.get(i + 1), Boolean.toString(studentAdapter.tracker[k]));
                 myUpdatedList.add(addition1);
@@ -201,7 +201,7 @@ public class StudentMainActivity extends AppCompatActivity {
         StorageReference attendSheet = storageReference.child(currentDateTimeString);
         StorageReference attendSheetReference = storageReference.child("data/data/com.example.android.contact_share/files/" + currentDateTimeString);
 
-        Toast.makeText(getApplicationContext(), "Hang On", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.hang, Toast.LENGTH_LONG).show();
         putStream(attendSheet);
 
 
@@ -221,7 +221,7 @@ public class StudentMainActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                    Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.success, Toast.LENGTH_LONG).show();
                 }
             });
 
