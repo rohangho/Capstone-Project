@@ -60,7 +60,6 @@ public class Student_Main_Activity extends AppCompatActivity {
     String nameconcat;
     Button save;
     int a;
-    String data1;
     public static ArrayList<CustomClassForStudent> myUpdatedList;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     String currentDateTimeString = DateFormat.getDateTimeInstance()
@@ -91,7 +90,7 @@ public class Student_Main_Activity extends AppCompatActivity {
 
 
             int d=savedInstanceState.getInt("number");
-            data1=savedInstanceState.getString("data");
+            data=savedInstanceState.getString("data");
             namedisplayer = (RecyclerView) findViewById(R.id.rec);
             layoutManager = new LinearLayoutManager(this);
             namedisplayer.setLayoutManager(layoutManager);
@@ -147,7 +146,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         myUpdatedList = new ArrayList<>();
         int k = 0;
         //Log.e("hiiiiii",Boolean.toString(studentAdapter.tracker[2]));
-        if (data == null && data1==null)
+        if (data == null)
             Toast.makeText(getApplicationContext(), "Seems Empty", Toast.LENGTH_LONG).show();
         else {
             List<String> list = new ArrayList<String>(Arrays.asList(data.split(",")));
@@ -352,7 +351,7 @@ public class Student_Main_Activity extends AppCompatActivity {
         if(state != null) {
             mylist = state.getParcelableArrayList("LIST_STATE");
             a=state.getInt("number");
-           
+
             ;
 
         }
