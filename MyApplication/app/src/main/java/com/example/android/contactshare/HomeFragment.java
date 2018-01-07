@@ -151,8 +151,9 @@ public class HomeFragment extends Fragment implements LocationListener {
 
         @Override
         protected void onPostExecute(String Datum) {
-            if (Datum != null)
-                temperature.setText(Datum + " K" + " Temperature");
+            if (Datum != null) {
+                temperature.setText(Datum+"K"+"Temperature");
+            }
         }
 
     }
