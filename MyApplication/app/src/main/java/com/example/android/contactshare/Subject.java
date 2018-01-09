@@ -2,7 +2,12 @@ package com.example.android.contactshare;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -20,17 +26,20 @@ public class Subject extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<CustomClassSub> subject_name = new ArrayList<CustomClassSub>();
     SubjectAdapter adapt;
+    ImageView sub_img;
     Button Logout;
     RecyclerView.LayoutManager layoutManager;
     int[] image_id = {R.drawable.ds, R.drawable.co, R.drawable.ethics, R.drawable.environment, R.drawable.digital, R.drawable.p};
     String[] name;
     static SharedPreferences sp;
+    Uri imageuri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_subject);
+
         name = getResources().getStringArray(R.array.Subject);
         int count = 0;
 
@@ -93,7 +102,33 @@ public class Subject extends AppCompatActivity {
 
     public  void changeImage(View v)
     {
-        
+        opengallery();
     }
 
+    public void opengallery()
+    {
+        Intent gallery=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery,22);
+
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent resultData) {
+
+        super.onActivityResult(requestCode,resultCode,resultData);
+        if(resultCode==RESULT_OK && requestCode==22)
+        {
+            imageuri=resultData.getData();
+           String[] projection={MediaStore.Images.Media.DATA};
+            Cursor cursor=getContentResolver().query(imageuri,projection,null,null,null);
+            cursor.moveToFirst();
+            int column=cursor.getColumnIndex(projection[0]);
+            String filepath=cursor.getString(column);
+            cursor.close();
+            Bitmap selectedImage= BitmapFactory.decodeFile(filepath);
+            sub_img=(ImageView)findViewById(R.id.subject_image);
+            sub_img.setImageBitmap(selectedImage);
+        }
+
+    }
 }
