@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +29,7 @@ public class Subject extends AppCompatActivity {
     SubjectAdapter adapt;
     ImageView sub_img;
     Button Logout;
+    FloatingActionButton action;
     RecyclerView.LayoutManager layoutManager;
     int[] image_id = {R.drawable.ds, R.drawable.co, R.drawable.ethics, R.drawable.environment, R.drawable.digital, R.drawable.p};
     String[] name;
@@ -42,7 +44,14 @@ public class Subject extends AppCompatActivity {
 
         name = getResources().getStringArray(R.array.Subject);
         int count = 0;
-
+        action=(FloatingActionButton)findViewById(R.id.fab);
+        action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myintent=new Intent(getApplicationContext(),Assignment.class);
+                startActivity(myintent);
+            }
+        });
         Logout = (Button) findViewById(R.id.LogOut);
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override

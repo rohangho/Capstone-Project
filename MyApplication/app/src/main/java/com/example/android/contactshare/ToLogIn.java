@@ -1,6 +1,8 @@
 package com.example.android.contactshare;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +42,10 @@ public class ToLogIn extends AppCompatActivity {
         signed_password = (EditText) findViewById(R.id.check_signed_password);
 
         final Intent myintent = new Intent(this, Subject.class);
+        SharedPreferences shref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        signed_email.setText(shref.getString("username",""));
+        signed_password.setText(shref.getString("password",""));
+
 
 
         check_credential = (Button) findViewById(R.id.user_credential);
@@ -51,6 +57,7 @@ public class ToLogIn extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
+                            shared();
                             startActivity(myintent);
                         } else
                             Toast.makeText(getApplicationContext(), "Something is wrong", Toast.LENGTH_LONG).show();
@@ -63,5 +70,13 @@ public class ToLogIn extends AppCompatActivity {
 
         });
 
+    }
+
+    public void shared()
+    {
+        SharedPreferences shref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=shref.edit();
+        editor.putString("username",signed_email.getText().toString());
+        editor.putString("password",signed_password.getText().toString());
     }
 }

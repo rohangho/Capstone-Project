@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.android.contactshare.SplashScreen">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,13 +24,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.android.contactshare.MainActivity"
+            android:name=".MainActivity"
             android:label="Attendance" />
-        <activity android:name="com.example.android.contactshare.Subject" />
-        <activity android:name="com.example.android.contactshare.ToLogIn" />
-        <activity android:name="com.example.android.contactshare.StudentMainActivity" />
+        <activity android:name=".Subject" />
+        <activity android:name=".ToLogIn" />
+        <activity android:name=".StudentMainActivity" />
 
-        <receiver android:name="com.example.android.contactshare.NewAppWidget">
+        <receiver android:name=".NewAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.intent.action.DATE_CHANGED" />
@@ -42,9 +42,11 @@
         </receiver>
 
         <service
-            android:name="com.example.android.contactshare.MyWidgetRemoteViewsService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"
-            android:exported="false" />
+            android:name=".MyWidgetRemoteViewsService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <activity android:name=".Assignment"></activity>
     </application>
 
 </manifest>
