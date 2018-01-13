@@ -14,8 +14,8 @@ import java.util.List;
  * Created by ROHAN on 11-01-2018.
  */
 
-public class AssignmentAdapter extends ArrayAdapter<CustomClassForAssignment> {
-    public AssignmentAdapter(@NonNull Context context, int resource, List<CustomClassForAssignment> objects) {
+public class ChatAdapter extends ArrayAdapter<CustomClassForChat> {
+    public ChatAdapter(@NonNull Context context, int resource, List<CustomClassForChat> objects) {
         super(context, resource,objects);
     }
 
@@ -28,7 +28,7 @@ public class AssignmentAdapter extends ArrayAdapter<CustomClassForAssignment> {
         TextView massage_to_be_displayed=(TextView)convertView.findViewById(R.id.display_message);
         TextView author_to_display=(TextView)convertView.findViewById(R.id.display_author);
 
-        CustomClassForAssignment messege=getItem(position);
+        CustomClassForChat messege=getItem(position);
         massage_to_be_displayed.setText(messege.getMessage());
         author_to_display.setText(messege.getAuthur());
         return convertView;

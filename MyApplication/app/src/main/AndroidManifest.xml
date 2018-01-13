@@ -46,7 +46,7 @@
             android:exported="false"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
-        <activity android:name=".Assignment"></activity>
+        <activity android:name=".Chat"></activity>
     </application>
 
 </manifest>
