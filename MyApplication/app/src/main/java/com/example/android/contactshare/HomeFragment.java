@@ -2,6 +2,7 @@ package com.example.android.contactshare;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -40,6 +41,7 @@ public class HomeFragment extends Fragment implements LocationListener {
     LocationManager locationManager;
     Criteria criteria;
     String bstProvider;
+    TextView student;
 
     public HomeFragment() {
 
@@ -48,6 +50,14 @@ public class HomeFragment extends Fragment implements LocationListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         temperature = (TextView) rootView.findViewById(R.id.temp);
+        student=(TextView)rootView.findViewById(R.id.studentPortrail);
+        student.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent=new Intent(getContext(),StudentPortrail.class);
+                startActivity(myIntent);
+            }
+        });
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
